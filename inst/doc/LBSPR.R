@@ -1,7 +1,9 @@
 ## ---- eval=FALSE---------------------------------------------------------
-#  # installed.packages("devtools")
-#  library(devtools)
-#  install_github("AdrianHordyk/LBSPR")
+#  install.packages("LBSPR")
+
+## ---- eval=FALSE---------------------------------------------------------
+#  install.packages("devtools")
+#  devtools::install_github("AdrianHordyk/LBSPR")
 
 ## ------------------------------------------------------------------------
 library(LBSPR)
@@ -28,7 +30,6 @@ MyPars@SL95 <- 65
 MyPars@SPR <- 0.4
 MyPars@BinWidth <- 5
 
-
 ## ------------------------------------------------------------------------
 MySim <- LBSPRsim(MyPars)
 
@@ -49,20 +50,20 @@ MySim@FM
 MyPars@SPR <- numeric() # remove value for SPR 
 MyPars@FM <- 1 # set value for FM
 MySim <- LBSPRsim(MyPars)
-MySim@SPR # SPR at F/M = 1 
+round(MySim@SPR, 2) # SPR at F/M = 1 
 
 ## ------------------------------------------------------------------------
 MyPars@MK <- 2.0 
 MySim <- LBSPRsim(MyPars)
-MySim@SPR # SPR 
+round(MySim@SPR, 2) # SPR 
 
 MyPars@MK <- 0.5
 MySim <- LBSPRsim(MyPars)
-MySim@SPR # SPR 
+round(MySim@SPR, 2) # SPR 
 
 MyPars@Linf <- 120
 MySim <- LBSPRsim(MyPars)
-MySim@SPR # SPR 
+round(MySim@SPR, 2) # SPR 
 
 ## ------------------------------------------------------------------------
 MyPars@MK <- 1.5 
@@ -70,12 +71,12 @@ MyPars@SL50 <- 10
 MyPars@SL95 <- 15 
 MyPars@FM <- 1 
 MySim <- LBSPRsim(MyPars)
-MySim@SPR # SPR 
+round(MySim@SPR, 2) # SPR 
 
 MyPars@SL50 <- 80
 MyPars@SL95 <- 85 
 MySim <- LBSPRsim(MyPars)
-MySim@SPR # SPR 
+round(MySim@SPR, 2) # SPR 
 
 ## ------------------------------------------------------------------------
 MyPars@Linf <- 100 
@@ -149,7 +150,6 @@ myFit2 <- LBSPRfit(MyPars, Len2)
 
 ## ------------------------------------------------------------------------
 myFit1@Ests
-myFit2@Ests
 
 ## ------------------------------------------------------------------------
 data.frame(rawSL50=myFit1@SL50, rawSL95=myFit1@SL95, rawFM=myFit1@FM, rawSPR=myFit1@SPR)
@@ -184,4 +184,10 @@ MyPars@SL50 <- Mod@SL50[yr]
 MyPars@SL95 <- Mod@SL95[yr] 
 
 plotTarg(MyPars, LenDat, yr=yr)
+
+## ---- eval=FALSE---------------------------------------------------------
+#  Shiny("LBSPR")
+
+## ---- eval=FALSE---------------------------------------------------------
+#  Shiny("Sim")
 

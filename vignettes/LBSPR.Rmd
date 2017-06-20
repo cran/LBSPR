@@ -40,13 +40,14 @@ Finally, please make sure you understand the data and the biological parameters 
 # First Steps
 
 ## Installing the Package
-The LBSPR package is not available on CRAN.
-
-You can install the latest version of the package directly from GitHub using the `devtools` package:
+The LBSPR package is now available on CRAN:
 ```{r, eval=FALSE}
-# installed.packages("devtools")
-library(devtools)
-install_github("AdrianHordyk/LBSPR")
+install.packages("LBSPR")
+```
+You can install the development version of the package from GitHub using the `devtools` package:
+```{r, eval=FALSE}
+install.packages("devtools")
+devtools::install_github("AdrianHordyk/LBSPR")
 ```
 
 ## Load the Package
@@ -103,7 +104,7 @@ The minimum parameters that are needed for the simulation model are:
 **Exploitation**
  - Length at 50% selectivity (`SL50`)
  - Length at 95% selectivity (`SL95`)
- - F/M ratio (`FM`) **or** SPR (`SPR`). If you specify both, the F/M value will be ignored.
+ - F/M ratio (`FM`) **or** SPR (`SPR`). If you specify both, the F/M value will be ignored. 
  
 **Size Classes**
  - Width of the length classes (`BinWidth`)
@@ -122,7 +123,6 @@ MyPars@SL50 <- 50
 MyPars@SL95 <- 65
 MyPars@SPR <- 0.4
 MyPars@BinWidth <- 5
-
 ```
 
 ## Running the Simulation Model 
@@ -147,7 +147,7 @@ MyPars@L_units <- "mm"
 ### The `LB_obj` Object
 The output of the `LBSPRsim` function is an object of class `LB_obj`.  This is another S4 object, and contains all of the information from the `LB_pars` object and the output of the `LBSPRsim` function. 
 
-Many of the functions in the LBSPR package return an object of class `LB_obj`.  You should not modify the `LB_obj` object directly. Rather, make changes to the `LB_pars` object (`MyPars`) in this case, and re-run the simulation model (or other functions, covered later in the vignette).
+Many of the functions in the LBSPR package return an object of class `LB_obj`.  You should not modify the `LB_obj` object directly. Rather, make changes to the `LB_pars` object (`MyPars` in this case), and re-run the simulation model (or other functions, covered later in the vignette).
 
 ### Simulation Output
 Let's take a look at some of the simulated output.
@@ -174,22 +174,22 @@ Specify F/M instead of SPR:
 MyPars@SPR <- numeric() # remove value for SPR 
 MyPars@FM <- 1 # set value for FM
 MySim <- LBSPRsim(MyPars)
-MySim@SPR # SPR at F/M = 1 
+round(MySim@SPR, 2) # SPR at F/M = 1 
 ```
 
 Change the life history parameters:
 ```{r}
 MyPars@MK <- 2.0 
 MySim <- LBSPRsim(MyPars)
-MySim@SPR # SPR 
+round(MySim@SPR, 2) # SPR 
 
 MyPars@MK <- 0.5
 MySim <- LBSPRsim(MyPars)
-MySim@SPR # SPR 
+round(MySim@SPR, 2) # SPR 
 
 MyPars@Linf <- 120
 MySim <- LBSPRsim(MyPars)
-MySim@SPR # SPR 
+round(MySim@SPR, 2) # SPR 
 ```
 
 Change selectivity parameters:
@@ -199,12 +199,12 @@ MyPars@SL50 <- 10
 MyPars@SL95 <- 15 
 MyPars@FM <- 1 
 MySim <- LBSPRsim(MyPars)
-MySim@SPR # SPR 
+round(MySim@SPR, 2) # SPR 
 
 MyPars@SL50 <- 80
 MyPars@SL95 <- 85 
 MySim <- LBSPRsim(MyPars)
-MySim@SPR # SPR 
+round(MySim@SPR, 2) # SPR 
 ```
 
 ### Control Options
@@ -233,7 +233,7 @@ The `plotSim` function can be used to plot `MySim`:
 plotSim(MySim) 
 ```
  
-By default the function plots: a) the expected size structure of the catch and the expected unfished size structure of the vulnerable population, b) the maturity and selectivity-at-length curves, c) the growth curve, and d) the SPR and relative yield curves as a function of relative fishing mortality.
+By default the function plots: a) the expected (equilibrium) size structure of the catch and the expected unfished size structure of the vulnerable population, b) the maturity and selectivity-at-length curves, c) the von Bertalanffy growth curve with relative age, and d) the SPR and relative yield curves as a function of relative fishing mortality (see note above on the *F/M* ratio).
 
 The `plotSim` function can be controlled in a number of ways.  For example, you can plot the expected unfished and fished size structure of the population by changing the `lf.type` argument:
 ```{r, fig.width = 6, fig.height=6}
@@ -353,7 +353,6 @@ The smoother parameter estimates can be accessed from the `myFit` object (which 
 
 ```{r}
 myFit1@Ests
-myFit2@Ests
 ```
 
 Note that by default the smoothed estimates are used in the plotting routines.
@@ -413,6 +412,22 @@ MyPars@SL95 <- Mod@SL95[yr]
 plotTarg(MyPars, LenDat, yr=yr)
 ```
 
+# Shiny Applications
+The [Shiny](http://shiny.rstudio.com/) package has made it possible to create user-friendly applications that use the computational power of R together with the interactivity of modern web browsers. A major advantage of this approach is that it allows a simple, user-friendly interface for using models built in R without having to interact directly with the R software.
+
+Several of the functions in the `LBSPR` package have been developed into interactive applications, which are included in the latest version of the package. 
+
+The Shiny applications can be launched using the `Shiny` function. The LBSPR estimation application:
+```{r, eval=FALSE}
+Shiny("LBSPR")
+```
+
+Simulation model calculating SPR, yield-per-recruit, expected size composition, etc:
+```{r, eval=FALSE}
+Shiny("Sim")
+```
+
+The LBSPR Shiny applications, and several others, are also available at [The Barefoot Ecologist's Toolbox](http://barefootecologist.com.au/).
 
 # References
 

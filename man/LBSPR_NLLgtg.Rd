@@ -39,4 +39,3 @@ Internal optimization function
 \author{
 A. Hordyk
 }
-

@@ -16,6 +16,12 @@ An S4 class containing all parameters for the LBSPR model
 
 \item{\code{YPR}}{Yield per recruit}
 
+\item{\code{SSB}}{Spawning stock biomass (relative only)}
+
+\item{\code{SSB0}}{Unfished spawning stock biomass}
+
+\item{\code{B0}}{Unfished biomass}
+
 \item{\code{LMids}}{A numeric vector containing the mid-points of the length bins}
 
 \item{\code{pLCatch}}{A numeric vector containg expected proportion for each length class in the catch}
@@ -31,6 +37,8 @@ An S4 class containing all parameters for the LBSPR model
 \item{\code{NLL}}{A numeric NLL values}
 
 \item{\code{maxFM}}{A numeric of maximum estimated F/M value (note this is apical F)}
+
+\item{\code{SPRatsize}}{A vector of cumulative SPR at length (currently only works for GTG model)}
 
 \item{\code{fitLog}}{A vector of error logs for each fit. 0 means everything is okay.}
 }}
