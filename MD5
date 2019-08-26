@@ -1,4 +1,4 @@
-dcbd5310fed83c2655f83724fe21519d *DESCRIPTION
+13f451179aa3885107b89812bcb8b7c7 *DESCRIPTION
 6a6277a4d80045b66dd7ab65e025eac9 *NAMESPACE
 6aac83d616e47bfb5a07520e1a5bfcd9 *R/DataDir.r
 26ceee298ab79911758143ac9def55f0 *R/FilterSmooth.r
@@ -18,9 +18,9 @@ cb4707bc5a2a944d310a4ac3e6da1b9f *R/plotEsts.r
 c33569b6ffd9ecf20b1265178cae37fe *R/plotMat.r
 f2e75e8bf710da221720b3a207f9a63e *R/plotSPRCirc.r
 44886e7dc3002fdc90c1f257869681f6 *R/plotSim.r
-1b237fe0ebb5aa3fb0811b98dc787de2 *R/plotSize.r
+27abb40c828d00629213130df8620a0a *R/plotSize.r
 7e3718e07543b696ac306c0849a16201 *R/plotTarg.r
-5ab90fec38e65c86146883a2b2254bf1 *build/vignette.rds
+7f91c3ad6b53c0e49c6be2541df22fdb *build/vignette.rds
 60a17d8b4c3d8d769aceb7f7df52062b *inst/LFreq_MultiYr.csv
 3c5413714d5e0423532ff5c3ce20b179 *inst/LFreq_MultiYrHead.csv
 5b59daaae878a86fa4d686e87650f370 *inst/LFreq_SingYr.csv
@@ -31,7 +31,7 @@ a7ff5b6ed9d66fb18e838b2025aba31d *inst/LRaw_MultiYrHead.csv
 9af09499bfdcfbe39d5e0676a70131c8 *inst/LRaw_SingYrHead.csv
 357cecdf3b75cfd90809d810d4c42677 *inst/doc/LBSPR.R
 7981babeee4ab5ec2c53c5a3435771ea *inst/doc/LBSPR.Rmd
-a6329476eec989caaf778ac84a677b03 *inst/doc/LBSPR.html
+615745ebd16431984a9fd87aaa455d7e *inst/doc/LBSPR.html
 e0f43ca9db33610aa0694626d9b08c2b *inst/shiny_apps/LBSPR/google-analytics.js
 e790089ad93dca9b76f56307ff515f0c *inst/shiny_apps/LBSPR/server.r
 f8b9db5ceeac948b26b85495faee5e99 *inst/shiny_apps/LBSPR/ui.r
@@ -61,7 +61,7 @@ da02638682435de5a148bbdd419d02ad *man/initialize-LB_pars-method.Rd
 01ec72a90375ddf2641d7094fcab05af *man/plotMat.Rd
 dcbeb0b428876ac4249722d25cfa3027 *man/plotSPRCirc.Rd
 96e7f6ff9d25032faa91882e1cdbc5af *man/plotSim.Rd
-997c9c94a6f95886aa125e07824834ec *man/plotSize.Rd
+78ede257407072ac5d15c395916dcd0b *man/plotSize.Rd
 d0f861968e6c079d7c6213a0f2e07950 *man/plotTarg.Rd
 97d96510db630d61913da830e79ae005 *src/NLLabsel.cpp
 2850816dc823b88d8e7ebd00f90ac973 *src/NLLgtg.cpp
