@@ -1,6 +1,6 @@
 Package: LBSPR
 Title: Length-Based Spawning Potential Ratio
-Version: 0.1.4
+Version: 0.1.5
 Authors@R: person("Adrian", "Hordyk", email = "ar.hordyk@gmail.com", role = c("aut", "cre"))
 Description: Simulate expected equilibrium length composition, yield-per-recruit, and
     the spawning potential ratio (SPR) using the length-based SPR (LBSPR) model. Fit the LBSPR
@@ -21,8 +21,8 @@ LinkingTo: Rcpp
 Suggests: colorspace, knitr, scales, shinyBS, rmarkdown
 VignetteBuilder: knitr
 NeedsCompilation: yes
-Packaged: 2019-08-26 18:33:01 UTC; User
+Packaged: 2019-12-05 21:50:40 UTC; Adrian
 Author: Adrian Hordyk [aut, cre]
 Maintainer: Adrian Hordyk <ar.hordyk@gmail.com>
 Repository: CRAN
-Date/Publication: 2019-08-26 19:10:02 UTC
+Date/Publication: 2019-12-05 22:30:02 UTC
